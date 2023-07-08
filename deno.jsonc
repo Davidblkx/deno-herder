@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "deno.ns",
+      "dom"
+    ]
+  },
+  "fmt": {
+    "indentWidth": 2,
+    "lineWidth": 90,
+    "singleQuote": true,
+    "useTabs": false
+  },
+  "test": {
+    "files": {
+      "include": [
+        "tests/"
+      ]
+    }
+  },
+  "imports": {
+    "$deno/": "https://deno.land/std@0.191.0/",
+    "$cliffy/": "https://deno.land/x/cliffy@v0.25.7/"
+  },
+  "tasks": {
+    "docs": "deno run -A https://deno.land/x/archaeopteryx/mod.ts ./docs"
+  }
+}
