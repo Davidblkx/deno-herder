@@ -1,6 +1,6 @@
 import { GitSetup, isInteractive, opt } from './options.ts';
 import { Confirm, Select } from 'https://deno.land/x/cliffy@v1.0.0-rc.1/prompt/mod.ts';
-import { C, requestInput } from './utils.ts';
+import { requestInput } from './utils.ts';
 
 async function loadGitSetupAction(): Promise<GitSetup> {
   if (Deno.args.includes('--git-skip')) return 'skip';
@@ -11,7 +11,7 @@ async function loadGitSetupAction(): Promise<GitSetup> {
   if (!isInteractive()) throw new Error('Git flag is required in non-interactive mode!');
 
   return await Select.prompt<GitSetup>({
-    message: C('yellow', 'How do you want to use GIT?'),
+    message: 'How do you want to use GIT?',
     options: [
       { name: 'Use existing GIT remote repository', value: 'existing' },
       { name: 'Create new GIT remote repository', value: 'new' },
@@ -37,7 +37,7 @@ async function loadGitCustomHost(): Promise<boolean> {
   if (!isInteractive()) return false;
 
   return await Confirm.prompt({
-    message: C('yellow', 'Do you want to use a custom SSH host for git'),
+    message: 'Do you want to use a custom SSH host for git',
     default: false,
     hint: 'Allows to have multiple SSH keys for different hosts',
   });

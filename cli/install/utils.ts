@@ -39,7 +39,7 @@ export async function requestInput({
   }
 
   return await Input.prompt({
-    message: C('yellow', message),
+    message,
     default: defaultValue,
     hint,
   });
